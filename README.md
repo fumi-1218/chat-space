@@ -24,9 +24,13 @@ Things you may want to cover:
 * ...
 
 ## usersテーブル
-||Column|Type|Options|
+|Column|Type|Options|
 |------|----|-------|
 |username|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 
+## groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|groupname|string|null: false|
