@@ -41,7 +41,7 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :users_groups
-- belongs_to :user,  through:  :users_groups
+- has_many :user, through:  :users_groups
 - has_many :message
 
 ## users_groupsテーブル
