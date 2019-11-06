@@ -30,8 +30,8 @@ Things you may want to cover:
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :users_groups
 - has_many :group, through:  :users_groups
+- has_many :users_groups
 - has_many :message
 
 ## groupテーブル
