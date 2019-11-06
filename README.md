@@ -29,7 +29,6 @@ Things you may want to cover:
 |username|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|users_groups_id|integer|null: false, foreign_key: true|
 ### Association
 - has_many :users_groups
 - has_many :group, through:  :users_groups
