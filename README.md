@@ -29,13 +29,27 @@ Things you may want to cover:
 |username|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
+|users_groups_id|integer|null: false, foreign_key:true|
 ### Association
-- has_many :group
+-has_many :users_groups
+- has_many :group, through:  :users_groups
 
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
-|user_id|integer|null: false, foreign_key:true|
+|users_groups_id|integer|null: false, foreign_key:true|
+
 ### Association
-- belongs_to user
+- has_many :users_groups
+- belongs_to :user,  through:  :users_groups
+
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key:true|
+|group_id|integer|null: false, foreign_key:true|
+### Association
+- belongs_to :user
+- belongs_to :group
+
