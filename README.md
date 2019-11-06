@@ -41,16 +41,16 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :users_groups
-- has_many :user, through:  :users_groups
+- has_many :users, through:  :users_groups
 - has_many :message
 
-## users_groupsテーブル
+## users_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+- belongs_to :users
 - belongs_to :group
 
 ## messageテーブル
@@ -61,5 +61,5 @@ Things you may want to cover:
 |group_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+- belongs_to :users
 - belongs_to :group
