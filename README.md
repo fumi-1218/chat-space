@@ -29,8 +29,13 @@ Things you may want to cover:
 |username|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
+### Association
+- has_many :group
 
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
+|user_id|integer|null: false, foreign_key:true|
+### Association
+- belongs_to user
