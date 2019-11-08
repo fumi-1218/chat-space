@@ -19,6 +19,6 @@
     %input.text{:name => "message_form", :placeholder => "type a message", :type => "message", :class => "messageform__input"}/
     %label{class: "messageform__image"}
       %i.fa.fa-image
-      %input{type: "file"}
+      %input{type: "file", class: "messageform__image__file"}
     = link_to "#" do
       %input.submit{:name => "message_send", :placeholder => "send", :type => "submit", :class => "messageform__submit"}/
