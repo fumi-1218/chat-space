@@ -15,4 +15,9 @@
         2019/10/08/19:14:30
     .maincontents__bottomtext
       this is a first message
-.messageform
+    .messageform
+      %input.text{:name => "message_form", :placeholder => "type a message", :type => "message", :class => "messageform__input"}/
+      %label{class: "messageform__image"}
+        %i.fa.fa-image
+        %input{type: "file"}
+      %input.submit{:name => "message_send", :placeholder => "SEND", :type => "submit", :class => "messageform__submit"}/
