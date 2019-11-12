@@ -9,8 +9,10 @@
         = link_to edit_user_path(current_user) do
           %i.fa.fa-cog
   .sidecontents
-    .sidecontents__name
-      test
-    .sidecontents__text
-      まだメッセージはありません
-
+    - current_user.groups.each do |group|
+      .sidecontent
+        = link_to group_messages_path(group) do
+          .sidecontents__name
+            = group.name
+          .sidecontents__text
+            まだメッセージはありません
