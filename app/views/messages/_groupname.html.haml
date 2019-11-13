@@ -2,6 +2,8 @@
   .mainheader__text__groupname
     = @group.name
   .mainheader__text__member
-    = @group.users.name
+  - @group.users.each do |user|
+    = user.name
 .mainheader__edit
-  Edit
+  = link_to edit_group_path(@group) do
+    Edit
