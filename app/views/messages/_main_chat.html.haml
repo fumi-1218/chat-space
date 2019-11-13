@@ -1,0 +1,14 @@
+.main
+  .mainheader
+    =render partial: "groupname"
+  .maincontents
+    = render @messages
+
+  .messageform
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'messageform__input', placeholder: 'type a message'
+      .messageform__image
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'messageform__image__file'
+      = f.submit 'Send', class: 'messageform__submit'
