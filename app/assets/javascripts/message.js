@@ -1,37 +1,22 @@
 $(function(){
   function buildHTML(message){
-    if ( message.image ) {
-      var html = `<div class="maincontents__toptext">
-                    <div class="maincontents__toptext__left">
-                      ${message.user_name}
-                    </div>
-                    <div class="maincontents__toptext__right">
-                      ${message.date}
-                    </div>
+    var image = message.image ? `<img src ="${message.image}">`: ""
+    var html = `<div class="maincontents__toptext">
+                  <div class="maincontents__toptext__left">
+                    ${message.user_name}
                   </div>
-                  <div class="maincontents__bottomtext">
-                    <p class="lower-message__content">
-                      ${message.content}
-                    </p>
-                      <img src=${message.image} >
-                  </div>`
-    } else {
-      var html = `<div class="maincontents__toptext">
-                    <div class="maincontents__toptext__left">
-                      ${message.user_name}
-                    </div>
-                    <div class="maincontents__toptext__right">
-                      ${message.date}
-                    </div>
+                  <div class="maincontents__toptext__right">
+                    ${message.date}
                   </div>
-                  <div class="maincontents__bottomtext">
-                    <p class="lower-message__content">
-                      ${message.content}
-                    </p>
-                  </div>`
-    }
+                </div>
+                <div class="maincontents__bottomtext">
+                  <p class="lower-message__content">
+                    ${message.content}
+                  </p>
+                  ${image}
+                </div>`
     return html;
-  }
+    } 
 
   $('.new_message').on('submit', function(e){
     e.preventDefault()
