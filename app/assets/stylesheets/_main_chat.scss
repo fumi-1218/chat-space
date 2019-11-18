@@ -38,6 +38,7 @@
   padding: 0 40px;
   height: calc(100vh - 180px);
   color: #434A54;
+  overflow: auto;
   &__toptext{
     padding-top: 46px;
     display: flex;
