@@ -14,7 +14,6 @@ $(function(){
                       ${message.content}
                     </p>
                   </div>
-                  <div class="maincontents__bottomtext">
                     <img src=${message.image} >
                   </div>`
     } else {
@@ -30,8 +29,6 @@ $(function(){
                     <p class="lower-message__content">
                       ${message.content}
                     </p>
-                  </div>
-                  <div class="maincontents__bottomtext">
                   </div>`
     }
     return html;
