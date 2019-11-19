@@ -49,3 +49,22 @@ $(function(){
       dataType: 'json',
       data: {id: last_message_id}
     })
+    .done(function(messages) {
+      var insertHTML = '';
+      always(function(data){
+        $.each(data, function(data){
+          insertHTML(data)
+        });
+        $('.maincontents').animate({scrollTop: $('.maincontents')[0].scrollHeight}, 'fast');   
+      });
+      
+      })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  window.addEventListener('load', function () {
+    setInterval(reloadMessages, 7000);
+  });
+});
+
