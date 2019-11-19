@@ -1,7 +1,8 @@
 $(function(){
-  function buildHTML(message){
+  function buildHTML(message){ 
     var image = message.image ? `<img src ="${message.image}">`: ""
-    var html = `<div class="maincontents__toptext" data-message-id=${message.id}>
+    var content = message.content ? `${message.content}`:""
+    var html = `<div class="maincontents__toptext" data-message-id= ${message.id}>
                   <div class="maincontents__toptext__left">
                     ${message.user_name}
                   </div>
@@ -11,13 +12,12 @@ $(function(){
                 </div>
                 <div class="maincontents__bottomtext">
                   <p class="lower-message__content">
-                    ${message.content}
+                    ${content}
                   </p>
                   ${image}
                 </div>`
     return html;
-    } 
-
+  };
   $('.new_message').on('submit', function(e){
     e.preventDefault()
     var formData = new FormData(this);
@@ -39,6 +39,13 @@ $(function(){
     .fail(function(){
       alert('error');
     });
-    return false;
+    return false; 
   });
-});
+  var reloadMessages = function() {
+    last_message_id = $(".maincontents__toptext:last").data('message-id')
+    $.ajax({
+      url: location.href,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
