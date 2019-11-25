@@ -2,20 +2,21 @@ $(function(){
   function buildHTML(message){ 
     var image = message.image ? `<img src ="${message.image}">`: ""
     var content = message.content ? `${message.content}`:""
-    var html = `<div class="maincontents__toptext" data-message-id= ${message.id}>
-                  <div class="maincontents__toptext__left">
-                    ${message.user_name}
+    var html = `<div class="maincontent" data-message-id= ${message.id}>
+                  <div class="maincontents__toptext">
+                    <div class="maincontents__toptext__left">
+                      ${message.user_name}
+                    </div>
+                    <div class="maincontents__toptext__right">
+                      ${message.date}
+                    </div>
                   </div>
-                  <div class="maincontents__toptext__right">
-                    ${message.date}
-                  </div>
-                </div>
-                <div class="maincontents__bottomtext">
-                  <p class="lower-message__content">
-                    ${content}
-                  </p>
-                  ${image}
-                </div>`
+                  <div class="maincontents__bottomtext">
+                    <p class="lower-message__content">
+                      ${content}
+                    </p>
+                      ${image}
+                  </div>`
     return html;
   };
   $('.new_message').on('submit', function(e){
@@ -66,5 +67,6 @@ $(function(){
   window.addEventListener('load', function () {
     setInterval(reloadMessages, 7000);
   });
+  $('.maincontents').animate({scrollTop: $('.maincontents')[0].scrollHeight}, 'fast');
 });
 
