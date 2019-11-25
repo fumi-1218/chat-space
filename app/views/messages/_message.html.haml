@@ -2,7 +2,7 @@
   .maincontents__toptext__left
     = message.user.name
   .maincontents__toptext__right
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
+    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
 .maincontents__bottomtext
   - if message.content.present?
     %p.lower-message__content
