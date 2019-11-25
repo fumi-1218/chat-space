@@ -72,7 +72,7 @@
   }
   &__image{
     position: absolute;
-    bottom: 27px;
+    // bottom: 27px;
     right: 160px;
     padding-right: 25px;
     &__file{
@@ -92,5 +92,7 @@
 }
 
 .form__mask__image{
-  color: #fff;
+  float: left;
+  padding-right: 10px;
+  padding-top: 12px;
 }
