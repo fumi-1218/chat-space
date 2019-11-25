@@ -1,7 +1,7 @@
 .main
   .mainheader
     = render partial: "groupname"
-  .maincontents
+  .maincontents{data: {group: {id: "#{@group.id}"}}}
     = render @messages
 
   .messageform
