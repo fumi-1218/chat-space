@@ -60,15 +60,15 @@
 .messageform{
   background-color: #ddd;
   padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
   height: 40px;
   &__input{
     font-size: 16px;
     color: #434A54;
     padding-left: 10px;
-    width: 880px;
+    padding-right: 10px;
     height: 40px;
+    float: left;
+    width: calc(100% - 150px);
   }
   &__image{
     position: absolute;
@@ -82,7 +82,9 @@
   &__submit{
     background-color: #38AEF0;
     color: #FFFFFF;
+    border: none;
     width: 100px;
+    float: right;
     height: 40px;
     margin-left: 20px;
     padding: 0 30px;
