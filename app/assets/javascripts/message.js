@@ -64,9 +64,9 @@ $(function(){
       console.log('error');
     });
   };
-  window.addEventListener('load', function () {
+  $(function(){
     setInterval(reloadMessages, 7000);
   });
-  $('.maincontents').animate({scrollTop: $('.maincontents')[0].scrollHeight}, 'fast');
+  // $('.maincontents').animate({scrollTop: $('.maincontents')[0].scrollHeight}, 'fast');
 });
 
