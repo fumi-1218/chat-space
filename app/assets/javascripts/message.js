@@ -2,20 +2,21 @@ $(function(){
   function buildHTML(message){ 
     var image = message.image ? `<img src ="${message.image}">`: ""
     var content = message.content ? `${message.content}`:""
-    var html = `<div class="maincontents__toptext" data-message-id= ${message.id}>
-                  <div class="maincontents__toptext__left">
-                    ${message.user_name}
+    var html = `<div class="maincontent" data-message-id= ${message.id}>
+                  <div class="maincontents__toptext">
+                    <div class="maincontents__toptext__left">
+                      ${message.user_name}
+                    </div>
+                    <div class="maincontents__toptext__right">
+                      ${message.date}
+                    </div>
                   </div>
-                  <div class="maincontents__toptext__right">
-                    ${message.date}
-                  </div>
-                </div>
-                <div class="maincontents__bottomtext">
-                  <p class="lower-message__content">
-                    ${content}
-                  </p>
-                  ${image}
-                </div>`
+                  <div class="maincontents__bottomtext">
+                    <p class="lower-message__content">
+                      ${content}
+                    </p>
+                      ${image}
+                  </div>`
     return html;
   };
   $('.new_message').on('submit', function(e){
@@ -41,30 +42,36 @@ $(function(){
     });
     return false; 
   });
+  
   var reloadMessages = function() {
-    last_message_id = $(".maincontents__toptext:last").data('message-id')
-    $.ajax({
-      url: location.href,
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      var insertHTML = '';
-      always(function(data){
-        $.each(data, function(data){
-          insertHTML(data)
-        });
-        $('.maincontents').animate({scrollTop: $('.maincontents')[0].scrollHeight}, 'fast');   
-      });
-      
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+        var last_message_id = $('.message:last').data("message-id"); 
+        groupid = $(".maincontents").data("group-id")
+      $.ajax({
+        url: `/groups/${groupid}/api/messages`,
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
       })
-    .fail(function() {
-      console.log('error');
-    });
+      .done(function(data) {
+        console.log(data)
+        var insertHTML = '';
+          $.each(data, function(i,data){
+            insertHTML = buildHTML(data)
+            $('.maincontents').append(insertHTML);
+          });
+        $('.maincontents').animate({scrollTop: $('.maincontents')[0].scrollHeight}, 'fast');   
+        })
+      .fail(function() {
+        console.log('error');
+      });
+    };
   };
-  window.addEventListener('load', function () {
+  $(function(){
     setInterval(reloadMessages, 7000);
   });
 });
 
+
+
+め
